@@ -30,6 +30,34 @@ function calculateCashOutForBack() {
         })
     }
 
+    if (result.length > 0) {
+        form.innerHTML += `      <table class='striped'>
+        <thead>
+          <tr>
+              <th>Backer's Odd</th>
+              <th>Backer Stake</th>
+              <th>Profit</th>
+          </tr>
+        </thead>
+
+        <tbody id='table-data'>`
+
+        let tableBody = document.getElementById('table-data')
+
+        for (let i = 0; i < result.length; i++) {
+            tableBody.innerHTML += `
+               <tr>
+                 <td>${result[i].oddOut}</td>
+                 <td>${result[i].backerStake}</td>
+                 <td>${result[i].profit}</td>
+               </tr>
+            `
+        }
+
+        form.innerHTML += `</tbody>
+                             </table>`
+    }
+
     return console.log(result)
 }
 
