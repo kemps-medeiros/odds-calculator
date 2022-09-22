@@ -63,7 +63,7 @@ function calculateCashOutForBack() {
                              </table>`
     }
 
-    return console.log(result)
+    // return console.log(result)
 }
 
 function changeColorByProfit(profit, currentTd) {
