@@ -49,9 +49,14 @@ function calculateCashOutForBack() {
                <tr>
                  <td>${result[i].oddOut}</td>
                  <td>${result[i].backerStake}</td>
-                 <td>${result[i].profit}</td>
+                 <td id='${i}'>${result[i].profit}</td>
                </tr>
             `
+
+            let currentTd = document.getElementById(i)
+
+            changeColorByProfit(result[i].profit, currentTd)
+
         }
 
         form.innerHTML += `</tbody>
@@ -59,6 +64,15 @@ function calculateCashOutForBack() {
     }
 
     return console.log(result)
+}
+
+function changeColorByProfit(profit, currentTd) {
+    if (profit < 0) {
+        currentTd.style.color = "#ca6567"
+    }
+    if (profit > 0) {
+        currentTd.style.color = "#008000"
+    }
 }
 
 function cashOutBetBack(oddBack, oddLay, stake) {
