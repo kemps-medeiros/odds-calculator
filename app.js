@@ -1,4 +1,5 @@
 let div = document.getElementById('principal')
+
 let buttonCashOutForBack = document.getElementById('cash-out-for-back')
 
 let form = document.getElementById('form')
@@ -8,7 +9,6 @@ let formCashOutForBackIsActive = false;
 let factorOddsOuts = []
 
 for (let i = 0; i < 100; i++) {
-    // factorOddsOuts[i] = factorOddsOuts[i - 1] + 0, 01;
     factorOddsOuts[0] = -0.50
     factorOddsOuts[i] = factorOddsOuts[i - 1] + 0.01
 }
