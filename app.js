@@ -1,10 +1,12 @@
 let div = document.getElementById('principal')
 
 let buttonCashOutForBack = document.getElementById('cash-out-for-back')
+let buttonCashOutForLay = document.getElementById('cash-out-for-lay')
 
 let form = document.getElementById('form')
 
 let formCashOutForBackIsActive = false;
+let formCashOutForLayIsActive = false;
 
 let factorOddsOuts = []
 
@@ -14,6 +16,9 @@ for (let i = 0; i < 100; i++) {
 }
 
 buttonCashOutForBack.onclick = openFormCashOutForBack
+
+buttonCashOutForLay.onclick = openFormCashOutForLay
+
 
 function calculateCashOutForBack() {
     let odd_back = document.getElementById('odd_back').value
@@ -103,6 +108,11 @@ function openFormCashOutForBack() {
     } else {
         form.innerHTML = ''
     }
+}
+
+function openFormCashOutForLay() {
+    formCashOutForLayIsActive = !formCashOutForLayIsActive
+
 }
 
 
