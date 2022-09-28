@@ -84,6 +84,10 @@ function cashOutBetBack(oddBack, oddLay, stake) {
     return ((oddBack / oddLay) * stake)
 }
 
+function calculateCashOutForLay() {
+    return console.log("hieee")
+}
+
 function openFormCashOutForBack() {
     formCashOutForBackIsActive = !formCashOutForBackIsActive
     if (formCashOutForBackIsActive === true) {
@@ -106,12 +110,33 @@ function openFormCashOutForBack() {
 
 
     } else {
-        form.innerHTML = ''
+        form.innerHTML = '';
     }
 }
 
 function openFormCashOutForLay() {
     formCashOutForLayIsActive = !formCashOutForLayIsActive
+    if (formCashOutForLayIsActive === true) {
+        form.innerHTML += `<h3>Cash Out for Lay</h3>`;
+        form.innerHTML += `<div class='row'>
+        <form class='col s12'>
+            <div class='input-field col s4'>
+                <input placeholder='Lay Odd' id='odd_lay' type='number' class='validate'>
+                <!-- <label for='first_name'>First Name</label> -->
+            </div>
+            <div class='input-field col s4'>
+                <input placeholder='Backer Stake' id='backer_stake' type='number' class='validate'>
+                <!-- <label for='first_name'>First Name</label> -->
+            </div>
+            <div class='input-field col s4 center'>
+                <a onclick='calculateCashOutForLay()' class="waves-effect waves-light btn-large">Calculate</a>
+            </div>
+        </form>
+    </div>`;
+
+    } else {
+        form.innerHTML = '';
+    }
 
 }
 
