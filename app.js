@@ -15,6 +15,14 @@ for (let i = 0; i < 100; i++) {
     factorOddsOuts[i] = factorOddsOuts[i - 1] + 0.01
 }
 
+let factorOddOutsLay = [];
+
+for (let i = 0; i < 100; i++) {
+    factorOddOutsLay[0] = -5;
+    factorOddOutsLay[i] = factorOddOutsLay[i - 1] + 0.1;
+}
+
+
 buttonCashOutForBack.onclick = openFormCashOutForBack
 
 buttonCashOutForLay.onclick = openFormCashOutForLay
@@ -84,8 +92,27 @@ function cashOutBetBack(oddBack, oddLay, stake) {
     return ((oddBack / oddLay) * stake)
 }
 
+function cashOutBetLay(oddLay, oddBack, backerStake) {
+    return ((oddLay / oddBack) * backerStake)
+}
+
 function calculateCashOutForLay() {
-    return console.log("hieee")
+    let odd_lay = document.getElementById('odd_lay').value
+    let backer_stake = document.getElementById('backer_stake').value
+    let result = []
+    for (let i = 0; i < factorOddOutsLay.length; i++) {
+        let OddBack = odd_lay + factorOddOutsLay[i]
+        let stake = cashOutBetLay(odd_lay, OddBack, backer_stake)
+        // let profit = stake - stake
+        result.push({
+            oddOut: OddBack,
+            stake: stake,
+            // profit: profit.toFixed(2)
+        })
+    }
+    console.log(result)
+    console.log(typeof odd_lay)
+
 }
 
 function openFormCashOutForBack() {
